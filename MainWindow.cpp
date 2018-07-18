@@ -3,6 +3,8 @@
 #include <QScrollArea>
 #include <QLabel>
 #include <QGroupBox>
+#include <QGraphicsView>
+#include <QGraphicsPixmapItem>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -69,3 +71,44 @@ void MainWindow::on_actionExecuta_triggered()
     scrollArea->setWidget(groupBox);
 }
 
+
+void MainWindow::on_actionMultiple_Canvas_triggered()
+{
+    ui->gridLayout->removeItem(ui->horizontalLayout);
+
+    QGraphicsView* view1 = new QGraphicsView(centralWidget());
+    view1->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+    view1->setResizeAnchor(QGraphicsView::NoAnchor);
+    QGraphicsView* view2 = new QGraphicsView(centralWidget());
+    view2->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+    view2->setResizeAnchor(QGraphicsView::NoAnchor);
+    QGraphicsView* view3 = new QGraphicsView(centralWidget());
+    view3->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+    view3->setResizeAnchor(QGraphicsView::NoAnchor);
+    QGraphicsView* view4 = new QGraphicsView(centralWidget());
+    view4->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+    view4->setResizeAnchor(QGraphicsView::NoAnchor);
+
+    // Create scene
+    QGraphicsScene* scene = new QGraphicsScene();
+
+    // Create pixmap item (image)
+    QGraphicsPixmapItem* pixmapItem = new QGraphicsPixmapItem();
+    // (Re)Learn how to add image as resource
+    QImage image("/home/marco/workspace/QtLayoutSketchs/images/vivillon.png");
+    pixmapItem->setPixmap(QPixmap::fromImage(image));
+
+    // Add image to the scene
+    scene->addItem(pixmapItem);
+    scene->setSceneRect(image.rect());
+
+    // Set scene to the first Graphics View
+    view1->setScene(scene);
+    view1->fitInView(scene->sceneRect(),
+                     Qt::AspectRatioMode::KeepAspectRatio);
+
+    ui->gridLayout->addWidget(view1, 0, 0);
+    ui->gridLayout->addWidget(view2, 0, 1);
+    ui->gridLayout->addWidget(view3, 1, 0);
+    ui->gridLayout->addWidget(view4, 1, 1);
+}

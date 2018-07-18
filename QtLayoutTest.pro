@@ -32,3 +32,6 @@ HEADERS += \
 
 FORMS += \
         MainWindow.ui
+
+DISTFILES += \
+    images/vivillon.png

@@ -21,6 +21,8 @@ public:
 private slots:
     void on_actionExecuta_triggered();
 
+    void on_actionMultiple_Canvas_triggered();
+
 private:
     Ui::MainWindow *ui;
     QLabel* createImageLabel(const QImage& image);

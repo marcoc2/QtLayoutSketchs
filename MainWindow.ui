@@ -41,6 +41,7 @@
      <string>Examples</string>
     </property>
     <addaction name="actionExecuta"/>
+    <addaction name="actionMultiple_Canvas"/>
    </widget>
    <addaction name="menuExecuta"/>
   </widget>
@@ -61,6 +62,11 @@
   <action name="actionAdiciona_face">
    <property name="text">
     <string>Adiciona Item</string>
+   </property>
+  </action>
+  <action name="actionMultiple_Canvas">
+   <property name="text">
+    <string>Multiple Canvas</string>
    </property>
   </action>
  </widget>

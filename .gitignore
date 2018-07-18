@@ -1,0 +1,6 @@
+# qtcreator generated files
+*.creator.user*
+*.pro.user*
+*.pyqtc.user*
+*.qbs.user*
+*.qmlproject.user
